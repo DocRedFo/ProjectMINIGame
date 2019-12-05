@@ -17,5 +17,5 @@ public abstract class Number {
     public void setQuestion(String question) {
         this.question = question;
     }
-        
+
 }

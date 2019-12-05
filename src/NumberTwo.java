@@ -1,2 +1,2 @@
-public class NumberTwo {
+public class NumberTwo extends Number {
 }
