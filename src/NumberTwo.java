@@ -3,32 +3,26 @@ import java.util.Scanner;
 public class NumberTwo extends Number {
     public NumberTwo(){
         Scanner scanner = new Scanner(System.in);
-        setQuestion("\n\n\n"+
-                "Прошло уже несколько дней, а от Jim нет ни слова..." +
-                "\nМожет быть Вы ошиблись, " + Gamer.getName() + "\n" +
-                "Хотя подождите..." +
-                "\n\t\"Ещё одно не прочитанное сообщение\"" +
-                "\nЗадание: Откройте новое сообщение");
+        setQuestion("Прочитайте сообщение");
         System.out.println(getQuestion());
-        setOprog("mail.txt");
-        setMassage("Я не советовал бы Вам пытаться нас поймать, мистер " + Gamer.getName() + ", так как это невозможно.\n" +
-                "Мы не злодеи. Тот, на кого Вы работаете - ужасный человек. К сожалению вменяемых доказательств у нас нет,\n" +
-                "НО Вы можете нам помочь получить их и распространить в СМИ.\n" +
-                "Что скажите?");
+        setOprog("mail");
+        setMassage("Приветствуем Вас, " + Gamer.getName() + "\n" +
+                "Мы представляем интересы общества и в том числе Ваши.\n" +
+                "Мы - fsociety. Мы знаем, что Вы работаете на Evil Corp и предлагаем Вам помочь нам.");
         terminal();
-        System.out.println("\n" + "Согласится (1) или Отказаться (0)");
+        System.out.println("\nСогласится (1) или Отказаться (0)");
         String s = scanner.nextLine();
         if (s.equals("1")){
             setOprog("mir");
+            setMassage("\nПрограмма запущена" +
+                    "\nСканирование и Отправка данных.......");
             Gamer.setKarma(Gamer.getKarma() / 2);
-            System.out.println("Вы согласились.\nВаша карма упала в два раза: " + Gamer.getKarma());
-            System.out.println("По указаниям Jim Вы должны открыть файл mir на своём пк");
-            setMassage("Большое спасибо за помощь. Надеюсь, что у нас поучится.\n" +
-                    "Jim");
-            Gamer.setProgress(Gamer.getProgress() + 1);
+            Gamer.setProgress(Gamer.getProgress() + 2);
+            System.out.println("Спасибо, что согласились. Вы поможете всем людям этой страны. Теперь Вам надо запустить программу mir");
+            System.out.println("\n\nAdminFriend: Кажется Ваша карма упала до " + Gamer.getKarma());
         }
         else {
-            System.out.println("Вы не согласились.\nКак и сказал Jim, Вы не смогли его найти.\nСпустя год Вы забросили это дело.");
+            System.out.println("Вы отказались помочь неизвестной Вам группировке хакеров. Вы продолжили свою работу на компанию.");
             System.exit(0);
         }
         terminal();

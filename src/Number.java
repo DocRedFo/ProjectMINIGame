@@ -33,7 +33,7 @@ public abstract class Number {
         while (f) {
             String AnsweR = scanner.nextLine();
             if (AnsweR.equals(getAnswer())) {
-                System.out.println("Поздравляю, " + Gamer.getName());
+                System.out.println("\nВыполнено");
                 System.out.println(getCheckm());
                 Gamer.setProgress(Gamer.getProgress()+1);
                 f = false;
@@ -42,7 +42,7 @@ public abstract class Number {
                 sh();
             }
             else {
-                System.out.println("Неверно. Вы можете воспользоваться подсказкой. Для этого введите sh");
+                System.out.println("\nОшибка. Вы можете воспользоваться подсказкой через команду sh");
                 f = true;
             }
         }
@@ -82,11 +82,11 @@ public abstract class Number {
                 showHelp();
                 f = false;
             } else if (console.equals(getLs())) {
-                System.out.println(getOprog());
-                System.out.println("\n");
+                System.out.println("\n" + getOprog());
+                System.out.println("");
                 f = false;
             } else if (console.equals(getOpen())) {
-                System.out.println("Введите аргумент");
+                System.out.println("\nОшибка!\nВведите аргумент\n");
                 f = false;
             } else if (console.equals(getOpen() + " " + getOprog())) {
                 System.out.println("\n\n\n");
@@ -94,7 +94,7 @@ public abstract class Number {
                 System.out.println("");
                 f = true;
             } else {
-                System.out.println("Неизвестная команда\nВоспользуйтесь help для помощи");
+                System.out.println("\nНеизвестная команда\nВоспользуйтесь help для помощи");
                 f = false;
             }
         }
@@ -109,10 +109,10 @@ public abstract class Number {
     }
 
     public void showHelp(){
-        System.out.println("Список доступных команд:");
+        System.out.println("\nСписок доступных команд:");
         System.out.println("help - Вызов помощи");
         System.out.println("ls - обзор каталога");
-        System.out.println("open - открыть файл");
+        System.out.println("open - открыть файл\n");
     }
 
     public String getAnswer() {

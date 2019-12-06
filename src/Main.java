@@ -1,21 +1,15 @@
 import java.util.Scanner;
 
-/*
-Игра в виде текстового квеста.
-По сюжету игры Вы являетесь самым известным интернет-детективом современности.
-Вам предстоит решить несколько головоломок для того, чтобы распутать это сложное дело.
- */
-
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите своё имя:");
+        System.out.print("Введите своё имя: ");
         String name = scanner.nextLine();
         boolean f = false;
         while (!f){
             if (name.equals("") || name.equals(" ")){
                 f = false;
-                System.out.println("Ошибка!\nВведите имя:");
+                System.out.print("\nОшибка!\nВведите имя: ");
                 name = scanner.nextLine();
             }
             else {
@@ -23,20 +17,13 @@ public class Main {
             }
         }
         Gamer gamer = new Gamer(name);
-        System.out.println("Ваш начальный уровень равен: " + Gamer.getProgress() + "\n" + "Ваш уровень кармы: " + Gamer.getKarma() +"\n" +
-        "Расходуйте её разумно.\n" + "Для повышения Вашего уровня, " + Gamer.getName() + ", Вы должны пройти 3 задания." + "\n" +
-        "Для победы в игре Вы должны пройти все задания и набрать максимальное количество баллов." + "\n" +
-        "\tУдачи, " + Gamer.getName());
-        boolean flag = false;
-        while (!flag){
-            System.out.println("Нажмите ENTER для продолжения.");
-            if (scanner.nextLine().equals("")){
-                flag = true;
-                System.out.println(
-"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
-                );
-                Welcome welcome = new Welcome();
+        System.out.println("\nВаш уровень прогресса: " + Gamer.getProgress() + "\n" + "Ваш уровень кармы: " + Gamer.getKarma() +"\n" +
+        "Расходуйте её разумно.\n" + "Для повышения Вашего уровня, " + Gamer.getName() + ", проходите задания." + "\n" + "\nУдачи, " + Gamer.getName());
+            System.out.print("\nНажмите ENTER для продолжения");
                 String enter = scanner.nextLine();
+                System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
+                Welcome welcome = new Welcome();
+                enter = scanner.nextLine();
                 Number numberOne = new NumberOne();
                 enter = scanner.nextLine();
                 Number numberTwo = new NumberTwo();
@@ -45,12 +32,7 @@ public class Main {
                 enter = scanner.nextLine();
                 Finish finish = new Finish(Gamer.getProgress(), Gamer.getKarma());
                 enter = scanner.nextLine();
-                System.out.println("\n\n\n" + "\t\t\tThe End" + "\n\n\n");
+                System.out.println("\n\n\n" + "\t\t\tThe End\n\t\t\tOR\n\t\t\tTo be continued" + "\n\n\n");
                 enter = scanner.nextLine();
-            }
-            else {
-                flag = false;
-            }
-        }
     }
 }
