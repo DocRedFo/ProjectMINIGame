@@ -1,36 +1,40 @@
 public class Gamer {
-    private String name;
-    private int progress;
-    private boolean play;
+    private static String name;
+    private static int progress;
+    private static int karma;
 
-    public void setName(String name) {
-        this.name = name;
+    public static void setKarma(int karma) {
+        Gamer.karma = karma;
     }
 
-    public void setPlay(boolean play) {
-        this.play = play;
+    public static int getKarma() {
+        return karma;
     }
 
-    public void setProgress(int progress) {
-        this.progress = progress;
+    public static void setName(String name) {
+        Gamer.name = name;
     }
 
-    public int getProgress() {
+
+
+    public static void setProgress(int progress) {
+        Gamer.progress = progress;
+    }
+
+    public static int getProgress() {
         return progress;
     }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
 
-    public boolean isPlay() {
-        return play;
-    }
+
 
     public Gamer(String name){
-        this.setName(name);
-        this.setProgress(0);
-        this.setPlay(false);
+        setName(name);
+        setProgress(0);
+        setKarma(100);
     }
 
 }

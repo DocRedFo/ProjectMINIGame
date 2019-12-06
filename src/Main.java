@@ -10,20 +10,42 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите своё имя:");
-        Gamer gamer = new Gamer(scanner.nextLine());
-        System.out.println("Ваш начальный уровень равен: " + gamer.getProgress() + "\n"
-        + "Для повышения Вашего уровня, " + gamer.getName() + ", Вы должны пройти 3 задания." + "\n" +
-        "Для победы в игре Вы должны пройти все задания и набрать максимальное количество баллов." + "\n" +
-        "\tУдачи, " + gamer.getName());
-        System.out.println("Нажмите ENTER для продолжения.");
-        label: while (!gamer.isPlay()){
-            if (scanner.nextLine().equals("")){
-                System.out.println("Добро пожаловать, " + gamer.getName());
-                System.out.println("\n\n\n\n\n\n\n\n");
-                NumberOne numberOne = new NumberOne();
+        String name = scanner.nextLine();
+        boolean f = false;
+        while (!f){
+            if (name.equals("") || name.equals(" ")){
+                f = false;
+                System.out.println("Ошибка!\nВведите имя:");
+                name = scanner.nextLine();
             }
             else {
-                break label;
+                f = true;
+            }
+        }
+        Gamer gamer = new Gamer(name);
+        System.out.println("Ваш начальный уровень равен: " + Gamer.getProgress() + "\n" + "Ваш уровень кармы: " + Gamer.getKarma() +"\n" +
+        "Расходуйте её разумно.\n" + "Для повышения Вашего уровня, " + Gamer.getName() + ", Вы должны пройти 3 задания." + "\n" +
+        "Для победы в игре Вы должны пройти все задания и набрать максимальное количество баллов." + "\n" +
+        "\tУдачи, " + Gamer.getName());
+        boolean flag = false;
+        while (!flag){
+            System.out.println("Нажмите ENTER для продолжения.");
+            if (scanner.nextLine().equals("")){
+                flag = true;
+                System.out.println(
+"\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n"
+                );
+                Welcome welcome = new Welcome();
+                String enter = scanner.nextLine();
+                Number numberOne = new NumberOne();
+                enter = scanner.nextLine();
+                Number numberTwo = new NumberTwo();
+                enter = scanner.nextLine();
+                Number numberThree = new NumberThree();
+
+            }
+            else {
+                flag = false;
             }
         }
     }
