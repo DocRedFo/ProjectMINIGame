@@ -82,7 +82,7 @@ public abstract class Number {
                 showHelp();
                 f = false;
             } else if (console.equals(getLs())) {
-                System.out.println("mail.txt");
+                System.out.println(getOprog());
                 System.out.println("\n");
                 f = false;
             } else if (console.equals(getOpen())) {

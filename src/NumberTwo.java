@@ -19,16 +19,17 @@ public class NumberTwo extends Number {
         System.out.println("\n" + "Согласится (1) или Отказаться (0)");
         String s = scanner.nextLine();
         if (s.equals("1")){
+            setOprog("mir");
             Gamer.setKarma(Gamer.getKarma() / 2);
             System.out.println("Вы согласились.\nВаша карма упала в два раза: " + Gamer.getKarma());
             System.out.println("По указаниям Jim Вы должны открыть файл mir на своём пк");
-            setOprog("mir");
             setMassage("Большое спасибо за помощь. Надеюсь, что у нас поучится.\n" +
                     "Jim");
+            Gamer.setProgress(Gamer.getProgress() + 1);
         }
         else {
             System.out.println("Вы не согласились.\nКак и сказал Jim, Вы не смогли его найти.\nСпустя год Вы забросили это дело.");
-            System.exit(1);
+            System.exit(0);
         }
         terminal();
     }

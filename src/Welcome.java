@@ -17,6 +17,7 @@ public class Welcome {
         while (!f) {
             String login = scanner.nextLine();
             if (login.equals(Welcome.Login)) {
+                if (g < 5) Gamer.setProgress(Gamer.getProgress() + 1);
                 System.out.println("Вход прошел успешно!\nLogin successful!");
                 for (int i = 0; i < 5; i++) {
                     if (i % 2 == 0) {

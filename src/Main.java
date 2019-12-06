@@ -42,7 +42,11 @@ public class Main {
                 Number numberTwo = new NumberTwo();
                 enter = scanner.nextLine();
                 Number numberThree = new NumberThree();
-
+                enter = scanner.nextLine();
+                Finish finish = new Finish(Gamer.getProgress(), Gamer.getKarma());
+                enter = scanner.nextLine();
+                System.out.println("\n\n\n" + "\t\t\tThe End" + "\n\n\n");
+                enter = scanner.nextLine();
             }
             else {
                 flag = false;
