@@ -27,6 +27,6 @@ public class NumberThree extends Number {
             System.out.println("\nВы отказались помочь в продолжении планов fsociety. Позже Вы предстали пред судом за шпионаж...");
             System.exit(0);
         }
-        check();
+        terminal();
     }
 }

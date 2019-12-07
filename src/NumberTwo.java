@@ -6,7 +6,7 @@ public class NumberTwo extends Number {
         setQuestion("Прочитайте сообщение");
         System.out.println(getQuestion());
         setOprog("mail");
-        setMassage("Приветствуем Вас, " + Gamer.getName() + "\n" +
+        setMassage("Приветствуем Вас, " + Gamer.n + "\n" +
                 "Мы представляем интересы общества и в том числе Ваши.\n" +
                 "Мы - fsociety. Мы знаем, что Вы работаете на Evil Corp и предлагаем Вам помочь нам.");
         terminal();

@@ -2,6 +2,7 @@ public class Gamer {
     private static String name;
     private static int progress;
     private static int karma;
+    public static String n;
 
     public static void setKarma(int karma) {
         Gamer.karma = karma;

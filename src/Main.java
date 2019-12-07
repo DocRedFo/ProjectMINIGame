@@ -1,5 +1,9 @@
 import java.util.Scanner;
 
+/*
+Сюжет основан на сериале Mr Robot, от лица обычного системного администратора.
+ */
+
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
@@ -33,6 +37,5 @@ public class Main {
                 Finish finish = new Finish(Gamer.getProgress(), Gamer.getKarma());
                 enter = scanner.nextLine();
                 System.out.println("\n\n\n" + "\t\t\tThe End\n\t\t\tOR\n\t\t\tTo be continued" + "\n\n\n");
-                enter = scanner.nextLine();
     }
 }

@@ -21,7 +21,7 @@ public class Welcome {
             else {
                 System.out.println("Введён неправильныйм пароль. Попробуйте ещё");
                 g++;
-                if (g >= 5) System.out.println("Password is qwerty");
+                if (g >= 5) System.out.println("Пароль: qwerty");
             }
         }
     }
