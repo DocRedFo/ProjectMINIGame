@@ -1,12 +1,17 @@
-public class Finish {
-    public Finish(int progress, int karma){
-        if (progress >= 2 && karma >= 40){
-            System.out.println("Все Ваши действия привели к тому, что Evil Corporation была разорена.\n" +
-                    "Одни люди избавились от кредитов и долгов, но другие лишились всех своих накоплений.");
-        }
-        else { //Похоже Вы взломали игру, так как этот вариант невозможно увидеть
-            System.out.println("Ничего не произошло. Вы слышали о задержании fsociety, но не особо придаёте этому значения.\n" +
-                    "Вы всё так же продолжаете работать в этой компании...");
-        }
+public class Finish extends Number {
+    private String end = "";
+
+    public String getEnd() {
+        return end;
+    }
+
+    public void setEnd(String end) {
+        this.end = end;
+    }
+    public Finish(){
+        finish();
+        System.out.println("Ваш счёт, " + Gamer.getName());
+        System.out.println("Уровень прогресса: " + Gamer.getProgress());
+        System.out.println("\n\n\n" + "\t\t\tThe End" + "\n\n\n");
     }
 }

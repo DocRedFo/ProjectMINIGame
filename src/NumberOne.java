@@ -1,25 +1,11 @@
-import java.util.Scanner;
-
 public class NumberOne extends Number {
-    @Override
-    public void check(){
-        Scanner scanner = new Scanner(System.in);
-            String AnsweR = scanner.nextLine();
-            System.out.println("\nВыполнено");
-            System.out.println("Спасибо за информацию, " + AnsweR + "\n\n");
-            Gamer.n = AnsweR;
-            Gamer.setProgress(Gamer.getProgress()+1);
-    }
     public NumberOne(){
-        setAnswer(Gamer.getName());
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n");
-        setQuestion("Прочитайте сообщение. Воспользуйтесь командой help");
-        System.out.println(getQuestion());
-        setOprog("mail");
-        setMassage("Здравствуйте." + "\nНам нужно, чтобы Вы сообщили своё имя, как сотрудник E Corp.");
-        terminal();
-        check();
-        System.out.println("Вам кажется довольно странным, что Ваш работодатель не знает вашего имени...");
+        System.out.println("\t12.12.12" +
+                "\nПрошло уже две недели Вашей \"работы\", но Вы еще не поучили ни одного зада...");
+        System.out.println("\n*У Вас одно новое уведомление*");
+        System.out.println("На экране появляется Ваше первое задание: ");
+        setQuestion("Задание: прочитать сообщение");
+        System.out.println("\n\t" + getQuestion());
+        System.out.println("\nВы немного в замешательстве, но думаю команда help поможет Вам");
     }
 }
