@@ -9,9 +9,13 @@ public abstract class Number {
         //Запуск и остановка Служб
         private String start = "start";
         private String stop = "stop";
+        private boolean pyFlag = false;
     //Приложения
     private String mail = "mail";
+    private int mailDir = 2;
         private String python = "python";
+        private int pythonDir = 3;
+        private String PythonMassage = "";
     //Папки
     private String Downloads = "Downloads"; //1
     private String Desktop = "Desktop"; //2
@@ -37,6 +41,22 @@ public abstract class Number {
     //Нахождение file командой ls
     private int FDir = 0;
 
+    public void setPyFlag(boolean pyFlag) {
+        this.pyFlag = pyFlag;
+    }
+
+    public boolean isPyFlag(){
+        return pyFlag;
+    }
+
+    public String getPythonMassage() {
+        return PythonMassage;
+    }
+
+    public void setPythonMassage(String pythonMassage) {
+        PythonMassage = pythonMassage;
+    }
+
     public int getDir() {
         return dir;
     }
@@ -47,6 +67,14 @@ public abstract class Number {
 
     public void setMailMassage(String mailMassage) {
         this.mailMassage = mailMassage;
+    }
+
+    public int getMailDir() {
+        return mailDir;
+    }
+
+    public int getPythonDir() {
+        return pythonDir;
     }
 
     public int getFDir() {
@@ -178,7 +206,7 @@ public abstract class Number {
         boolean flag = true;
         while (flag){
             String string = scanner.nextLine();
-            if (string.equals(getHelp())){
+            if (string.equals(getHelp()) || string.equals(getHelp() + " ")){
                 System.out.println("\nСписок доступных команд:" +
                         "\nhelp - вызов помощи" +
                         "\nls - обзор папки" +
@@ -187,72 +215,126 @@ public abstract class Number {
                         "\nstart [аргумент] - запуск служб или процессов" +
                         "\nstop [аргумент] - остановка служб или процессов\n");
             }
-            else if (string.equals(getLs())){
+            else if (string.equals(getLs()) || string.equals(getLs() + " ")){
                 if (getDir() == 0) {
                     if (getFDir() == 0) System.out.println("\n" + getDesktop() + "\n" + getDownloads() + "\n" + getDocuments() + "\n" + getMusic() + "\n" + getFile() + "\n");
                     else System.out.println("\n" + getDesktop() + "\n" + getDownloads() + "\n" + getDocuments() + "\n" + getMusic() + "\n");
                 }
                 else if (getDir() == 1){
-                    if (getFDir() == 1) System.out.println("\npicture.mp8" + "\nvideo.jpn" + "\nnitrospeed.game\n" + getFile() + "\n");
-                    else System.out.println("\npicture.mp8" + "\nvideo.jpn" + "\nnitrospeed.game\n");
+                    if (getFDir() == 1) System.out.println("\npicture" + "\nvideo.jpn" + "\n" + getFile() + "\nнидфорспид.game\n");
+                    else System.out.println("\npicture" + "\nvideo.jpn" + "\nнидфорспид.game\n");
                 }
                 else if (getDir() == 2){
-                    if (getFDir() == 2) System.out.println();
-                    else System.out.println();
+                    if (getFDir() == 2) System.out.println("\njimmy.jar" + "\n" + getFile() + "\nкит.photo" + "\nmichael\n" + "mail\n");
+                    else System.out.println("\njimmy.jar" + "\nкит.photo" + "\nmichael\n" + "mail\n");
                 }
                 else if (getDir() == 3){
-                    if (getFDir() == 3) System.out.println();
-                    else System.out.println();
+                    if (getFDir() == 3) System.out.println("\nschool.doc" + "\npython" + "\nintresting" + "\nпароли.txt" + "\n" + getFile() + "\n");
+                    else System.out.println("\nschool.doc" + "\npython" + "\nintresting" + "\nпароли.txt\n");
                 }
                 else if (getDir() == 4){
-                    if (getFDir() == 4) System.out.println();
-                    else System.out.println();
+                    if (getFDir() == 4) System.out.println("\nQueen.alb" + "\nOne\n" + getFile() + "\nКороль и Шут");
+                    else System.out.println("\nQueen.alb" + "\nOne" + "\nКороль и Шут\n");
                 }
                 else System.out.println("Непредвиденная ошибка!");
             }
-            else if (string.equals(getCd())){
+            else if (string.equals(getCd()) || string.equals(getCd() + " ") || string.equals(getCd() + " " + "/") || string.equals(getCd() + " " + "..") ||
+                    string.equals(getCd() + " " + ".." + " ")){
                 setDir(0);
             }
-            else if (string.equals(getCd() + " " + getDesktop())){
-
+            else if (string.equals(getCd() + " " + getDesktop()) || string.equals(getCd() + " " + getDesktop() + " ") ||
+                    string.equals(getCd() + " " + getDesktop() + "/")){
+                if (getDir() == 0) setDir(2);
+                else System.out.println("Каталог не найден");
             }
-            else if (string.equals(getCd() + " " + getDownloads())){
-
+            else if (string.equals(getCd() + " " + getDownloads()) || string.equals(getCd() + " " + getDownloads() + " ")
+                    || string.equals(getCd() + " " + getDownloads() + "/")){
+                if (getDir() == 0) setDir(1);
+                else System.out.println("Каталог не найден");
             }
-            else if (string.equals(getCd() + " " + getDocuments())){
-
+            else if (string.equals(getCd() + " " + getDocuments()) || string.equals(getCd() + " " + getDocuments() + " ")
+                    || string.equals(getCd() + " " + getDocuments() + "/")){
+                if (getDir() == 0) setDir(3);
+                else System.out.println("Каталог не найден");
             }
-            else if (string.equals(getCd() + " " + getMusic())){
-
+            else if (string.equals(getCd() + " " + getMusic()) || string.equals(getCd() + " " + getMusic() + " ") ||
+                    string.equals(getCd() + " " + getMusic() + "/")){
+                if (getDir() == 0) setDir(4);
+                else System.out.println("Каталог не найден");
             }
-            else if (string.equals(getOpen())){
-
+            else if (string.equals(getOpen()) || string.equals(getOpen() + " ")){
+                System.out.println("Введите аргумент");
             }
-            else if (string.charAt(6) == 'i'){
-                System.out.print("Ошибка!" +
+            else if (string.equals(getOpen() + " " + "picture") || string.equals(getOpen() + " " + "video.jpn") ||
+                    string.equals(getOpen() + " " + "нидфорспид.game") || string.equals(getOpen() + " " + "jimmy.jar") ||
+                    string.equals(getOpen() + " " + "кит.photo") || string.equals(getOpen() + " " + "michael") ||
+                    string.equals(getOpen() + " " + "school.doc") || string.equals(getOpen() + " " + "intresting") ||
+                    string.equals(getOpen() + " " + "пароли.txt") || string.equals(getOpen() + " " + "Queen.alb") ||
+                    string.equals(getOpen() + " " + "One") || string.equals(getOpen() + " " + "Король и Шут") ||
+                    string.equals(getOpen() + " " + "picture" + " ") || string.equals(getOpen() + " " + "video.jpn" + " ")
+                    || string.equals(getOpen() + " " + "нидфорспид.game" + " ") || string.equals(getOpen() + " " + "jimmy.jar" + " ")
+                    || string.equals(getOpen() + " " + "кит.photo" + " ") || string.equals(getOpen() + " " + "michael" + " ")
+                    || string.equals(getOpen() + " " + "school.doc" + " ") || string.equals(getOpen() + " " + "intresting" + " ")
+                    || string.equals(getOpen() + " " + "пароли.txt" + " ") || string.equals(getOpen() + " " + "Queen.alb" + " ")
+                    || string.equals(getOpen() + " " + "One" + " ") || string.equals(getOpen() + " " + "Король и Шут" + " ")){
+                System.out.println("Ошибка!" +
                         "\nНеизвестный формат");
             }
-            else if (string.equals(getOpen() + " " + getFile())){
-                System.out.println("Ваш ответ: " + getAnswer());
-                flag = false;
+            else if (string.equals(getOpen() + " " + getFile()) || string.equals(getOpen() + " " + getFile() + " ")){
+                if (getDir() == getFDir()) {
+                    System.out.println(getMassage());
+                    flag = false;
+                }
+                else {
+                    System.out.println("Файл отсутствует");
+                }
             }
-            else if (string.equals(getOpen() + " " + getMail())){
-
+            else if (string.equals(getOpen() + " " + getMusic()) || string.equals(getOpen() + " " + getDocuments()) || string.equals(getOpen() + " " + getDesktop()) || string.equals(getOpen() + " " + getDownloads()) ||
+                    string.equals(getOpen() + " " + getMusic() + " ") || string.equals(getOpen() + " " + getDocuments() + " ") || string.equals(getOpen() + " " + getDesktop() + " ") || string.equals(getOpen() + " " + getDownloads() + " ")){
+                System.out.println("Это каталог");
             }
-            else if (string.equals(getStart())){
-
+            else if (string.equals(getOpen() + " " + getMail()) || string.equals(getOpen() + " " + getMail() + " ")){
+                if (getMailDir() == getDir()) {
+                    System.out.println(getMailMassage());
+                    flag = false;
+                }
+                else {
+                    System.out.println("Файл отсутствует");
+                }
             }
-            else if (string.equals(getStart() + " " + getPython())){
-
+            else if (string.equals(getStart()) || string.equals(getStart() + " ")){
+                System.out.println("Введите аргумент");
             }
-            else if (string.equals(getStop())){
-
+            else if (string.equals(getStart() + " " + getPython()) || string.equals(getStart() + " " + getPython() + " ")){
+                if (getPythonDir() == getDir()) {
+                    System.out.println("python запущен");
+                    setPyFlag(true);
+                    flag = false;
+                }
+                else {
+                    System.out.println("Файл отсутствует");
+                }
             }
-            else if (string.equals(getStop() + " " + getPython())){
-
+            else if (string.equals(getStop()) || string.equals(getStop() + " ")){
+                System.out.println("Введите аргумент");
             }
-            else if (string.equals(getPython())){
-
+            else if (string.equals(getStop() + " " + getPython()) || string.equals(getStop() + " " + getPython() + " ")){
+                if (isPyFlag()) {
+                    System.out.println("python остановлен");
+                    setPyFlag(false);
+                    flag = false;
+                }
+                else {
+                    System.out.println("Приложение не было запущено");
+                }
+            }
+            else if (string.equals(getPython()) || string.equals(getPython() + " ")){
+                if (getPythonDir() == getDir()) {
+                    System.out.println("--version python 4.4.4 and I think it's lie");
+                }
+                else {
+                    System.out.println("Файл отсутствует");
+                }
             }
             else {
                 System.out.println("Неизвестная команда\nВоспользуйтесь командой help");
@@ -348,7 +430,7 @@ public abstract class Number {
     }
     //Концовка
     public void finish(){
-        if (Gamer.getProgress() > 5){
+        if (Gamer.getProgress() >= 5){
             System.out.println("Вы справились с заднаниями, " + Gamer.getName());
         }
         else {

@@ -1,6 +1,6 @@
 import java.util.Scanner;
 /*
-Полностью переписанная игра Version 0.9
+Полностью переписанная игра Version 1.0
  */
 public class Main {
     public static void main(String[] args) {

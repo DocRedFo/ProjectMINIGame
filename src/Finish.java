@@ -10,8 +10,7 @@ public class Finish extends Number {
     }
     public Finish(){
         finish();
-        System.out.println("Ваш счёт, " + Gamer.getName());
-        System.out.println("Уровень прогресса: " + Gamer.getProgress());
-        System.out.println("\n\n\n" + "\t\t\tThe End" + "\n\n\n");
+        setEnd("Ваш счёт" + "\nУровень прогресса: " + Gamer.getProgress() + "\n\n\n" + "\t\t\tThe End" + "\n\n\n");
+        System.out.println(getEnd());
     }
 }
